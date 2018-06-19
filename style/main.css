@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+html {
+  background: linear-gradient(40deg, #fa0, #6f3723);
+  min-height: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px; }
+  html *::selection {
+    background-color: rgba(173, 216, 230, 0.801); }
+
+#app {
+  min-width: 640px;
+  max-width: 1024px;
+  margin: 24px auto; }
+  #app ::-webkit-scrollbar {
+    width: 15px; }
+  #app ::-webkit-scrollbar-track {
+    background: transparent; }
+  #app ::-webkit-scrollbar-thumb {
+    background: rgba(165, 206, 253, 0.695); }
+  #app ::-webkit-scrollbar-thumb:hover {
+    background: rgba(165, 206, 253, 0.895); }
+  #app * {
+    box-sizing: border-box; }
+  #app .header {
+    padding: 24px;
+    height: 98px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-top-left-radius: 48px;
+    border-bottom-left-radius: 48px; }
+    #app .header .logo {
+      float: left;
+      width: 50px;
+      height: 50px;
+      background-image: url(../img/fork.svg);
+      background-size: contain;
+      border: 1px solid orange;
+      border-radius: 50%;
+      transform: scale(1.5);
+      cursor: pointer; }
+      #app .header .logo a {
+        display: block;
+        width: 100%;
+        height: 100%; }
+    #app .header .search-form {
+      width: 470px;
+      margin: 5px auto;
+      padding-left: 48px;
+      font-size: 1.5rem; }
+      #app .header .search-form [type='text'] {
+        width: 270px;
+        padding: 12px 20px;
+        border: 1px solid rgba(255, 140, 0, 0.4);
+        border-radius: 24px;
+        transition: border .1s; }
+        #app .header .search-form [type='text']:active, #app .header .search-form [type='text']:focus {
+          border-color: rgba(255, 140, 0, 0.9);
+          outline: none; }
+        #app .header .search-form [type='text']::selection {
+          background-color: rgba(173, 216, 230, 0.801); }
+      #app .header .search-form [type='button'] {
+        position: relative;
+        top: 2px;
+        left: -60px;
+        padding: 8px 40px 9px;
+        border: transparent;
+        border-radius: 24px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.95);
+        background: linear-gradient(-70deg, darkorange, coral);
+        cursor: pointer; }
+        #app .header .search-form [type='button']:active, #app .header .search-form [type='button']:focus {
+          outline: none;
+          border: transparent; }
+        #app .header .search-form [type='button']:hover {
+          text-decoration: underline; }
+  #app .content {
+    display: flex; }
+    #app .content .loader {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.425);
+      display: none;
+      z-index: 9; }
+      #app .content .loader .loaderSvg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        background-image: url(../img/loaderSvg.svg);
+        background-size: contain; }
+  #app .preview-list {
+    position: relative;
+    width: 25%;
+    height: 550px;
+    margin-top: 24px;
+    background-color: rgba(255, 255, 255, 0.95); }
+    #app .preview-list .pagination {
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      color: #222;
+      user-select: none; }
+      #app .preview-list .pagination .arrow {
+        cursor: pointer;
+        padding: 0 15px;
+        margin: 0 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(153, 153, 153, 0.5);
+        background-color: rgba(125, 185, 253, 0.1);
+        display: none; }
+        #app .preview-list .pagination .arrow:hover {
+          text-decoration: underline; }
+    #app .preview-list .notfound {
+      display: none;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 12px 0;
+      color: #777; }
+    #app .preview-list .previews {
+      overflow-y: scroll;
+      height: 500px; }
+      #app .preview-list .previews > :nth-child(even) {
+        background: rgba(125, 185, 253, 0.2); }
+      #app .preview-list .previews .recipe-preview {
+        padding: 12px 0;
+        padding-right: 15px;
+        min-height: 50px;
+        display: flex;
+        cursor: pointer; }
+        #app .preview-list .previews .recipe-preview:hover .title {
+          text-decoration: underline; }
+        #app .preview-list .previews .recipe-preview .preview-logo {
+          height: 100%;
+          width: 74px;
+          float: left; }
+        #app .preview-list .previews .recipe-preview img {
+          margin: 0 12px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%; }
+        #app .preview-list .previews .recipe-preview .title {
+          text-transform: uppercase;
+          text-align: center;
+          font-size: .8rem;
+          color: #222; }
+        #app .preview-list .previews .recipe-preview .publisher {
+          margin-top: 5px;
+          font-size: .7rem;
+          text-align: center;
+          padding-right: 24px;
+          color: #777; }
+  #app .recipe-desc {
+    position: relative;
+    width: 46%;
+    margin: 0 2%;
+    margin-top: 24px;
+    background-color: rgba(220, 240, 253, 0.459); }
+    #app .recipe-desc ::-webkit-scrollbar-thumb {
+      background: rgba(255, 140, 0, 0.734); }
+    #app .recipe-desc ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 140, 0, 0.925); }
+    #app .recipe-desc img {
+      display: block;
+      max-height: 250px;
+      max-width: 100%;
+      margin: 12px auto; }
+    #app .recipe-desc .title {
+      margin: 0 auto;
+      padding: 8px;
+      text-align: center;
+      white-space: nowrap;
+      overflow-x: hidden;
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, darkorange, coral);
+      color: #fff; }
+    #app .recipe-desc .ingredients {
+      padding: 0 12px;
+      overflow-y: scroll;
+      font-size: .8rem;
+      height: 176px; }
+      #app .recipe-desc .ingredients span {
+        display: inline-block;
+        width: 42%;
+        vertical-align: top;
+        position: relative;
+        padding: 4px;
+        margin: 0 8px;
+        box-sizing: border-box; }
+        #app .recipe-desc .ingredients span:before {
+          display: block;
+          position: absolute;
+          top: 6px;
+          left: -14px;
+          content: '';
+          width: 15px;
+          height: 15px;
+          background-image: url(../img/mark.svg);
+          background-size: contain; }
+    #app .recipe-desc .addButton {
+      width: 200px;
+      margin: 8px auto;
+      padding: 8px;
+      border-radius: 24px;
+      text-align: center;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.95);
+      background: linear-gradient(-70deg, darkorange, coral);
+      cursor: pointer; }
+      #app .recipe-desc .addButton:hover {
+        text-decoration: underline; }
+  #app .shopping-list {
+    width: 25%;
+    height: 550px;
+    margin-top: 24px;
+    background-color: rgba(255, 255, 255, 0.95); }
+    #app .shopping-list .shoppinglist-heading {
+      padding: 7px;
+      background-color: #fff;
+      color: #333;
+      font-size: 1.3rem;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase; }
+    #app .shopping-list .shopping-items {
+      height: 500px;
+      overflow-y: scroll; }
+    #app .shopping-list .dish .heading {
+      background-color: lightblue;
+      padding: 6px; }
+    #app .shopping-list .dish .ingredients > :nth-child(even) {
+      background: rgba(125, 185, 253, 0.2); }
+    #app .shopping-list .dish .title,
+    #app .shopping-list .dish .ingredient-title {
+      display: inline-block;
+      width: calc(100% - 25px); }
+    #app .shopping-list .dish .title {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: .9rem;
+      cursor: pointer; }
+      #app .shopping-list .dish .title:hover {
+        text-decoration: underline; }
+    #app .shopping-list .dish .delete-recipe,
+    #app .shopping-list .dish .delete-ingredient {
+      display: inline-block;
+      vertical-align: top;
+      width: 20px;
+      height: 20px;
+      background-image: url(../img/delitem.svg);
+      background-size: contain;
+      cursor: pointer;
+      opacity: .3;
+      transition: .2s;
+      transform: scale(0.75); }
+      #app .shopping-list .dish .delete-recipe:hover,
+      #app .shopping-list .dish .delete-ingredient:hover {
+        opacity: .5; }
+    #app .shopping-list .dish .delete-recipe {
+      transform: scale(1) translateX(1px); }
+    #app .shopping-list .dish .ingredient {
+      padding: 4px;
+      font-size: .8rem;
+      color: #555; }
+
+/*# sourceMappingURL=main.css.map */
